@@ -1,0 +1,18 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+main{
+    width: 100%;
+    margin:95px 0px;
+    padding-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display:flex;
+    justify-content: space-around;
+    span{
+        padding-top: 20px;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        border-top: 6px solid $mainBlue;
+    }
+}

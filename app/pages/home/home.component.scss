@@ -1,0 +1,106 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+.home-block{
+    margin-top: 135px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @include respond(tabletS){
+        margin-top: 100px;
+    }
+    .slider{
+        width: 100%;
+        padding: 0px 10px;
+        overflow: hidden;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        @include respond(tabletS){
+            width: 600px;
+            margin: 0px auto 40px;
+        }
+        @include respond(mobile){
+            width: 100%;
+            margin: 0px 5px 40px 0px;
+            padding: 0px;
+        }
+    .discount-list{
+        max-width: 5000px;
+        display: flex;
+        position: relative;
+        transition: all 0.3s ease;
+        @extend %slider;
+        img{
+            width: 48vw;
+            margin-right: 20px;
+            border-radius: 10px;
+            z-index: -1;
+            @include respond(tablet){
+                width: 47vw;
+            }
+            @include respond(tabletS){
+                width: 100%;
+                margin-right: 12px;
+            }
+            @include respond(mobile){
+                width: 100%;
+                margin-right: 10px;
+            }
+        }
+    }
+    }
+    .description{
+        width: 100%;
+        height: 200px;
+        background-color: $mainBlue;
+        display: flex;
+        padding: 40px 0px;
+        @include respond(tablet){
+            padding: 10px;
+        }
+        @include respond(mobile){
+            display: none;
+        }
+        .last{
+            padding-right: 20px;
+            span{
+                max-width: 250px;
+            }
+        }
+        &__info{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 0px 50px;
+            @include respond(tablet){
+                padding: 0px;
+                flex-direction: column;
+                align-items: center;
+            }
+            button{
+                width: 175px;
+                height: 56px;
+                padding: 16px 15px;
+                font-size: 16px;
+                font-weight: bold;
+                margin: auto ;
+                border: none;
+                border-radius: 10px;
+                background-color: white;
+                cursor: pointer;
+            }
+            span{
+                margin: auto 18px;
+                font-weight: 400;
+                text-align: center;
+            }
+            .bold{
+                font-weight: bold;
+                margin: 0px;
+            }
+        }
+        &__border{
+            border: 1px solid rgb(231, 231, 231);
+            border-top: 0px;
+            border-bottom: 0px;
+        }
+    }
+}

@@ -1,0 +1,85 @@
+<header>
+  <div class="logo" [routerLink]="[ '/home']" routerLinkActive="active">
+    <div class="logo__img">
+      <img src="../../../assets/logo.svg" alt="" width="135px" />
+    </div>
+    <div class="logo__img-mobile">
+      <img src="../../../assets/logo-mobile.svg" alt="" width="40px" />
+    </div>
+  </div>
+  <div class="header-info">
+    <div class="product">
+      <div class="product__category" [routerLink]="[ '/discount']" routerLinkActive="active">
+        <img src="../../../assets/nav-img-gift.svg" alt="" height="32px">
+        <span class="product__category__name">Акції</span>
+      </div>
+      <div class="product__category" *ngFor="let info of smalCategoryList" [routerLink]="[ '/product/'+info.name ]" routerLinkActive="active">
+        <img [src]="info.imagePath" alt="" height="32px" />
+        <span class="product__category__name">{{ info.name }}</span>
+      </div>
+    </div>
+    <div class="functional">
+      <div class="functional__menu" (click)="menuToggle()">
+        <div class="line" [ngClass]="{ 'rotate-line': menuLaptop}"></div>
+        <div class="menu-block" [ngClass]="{ 'menu-block-active': menuLaptop }">
+          <ul>
+            <li [routerLink]="[ '/delivery']" routerLinkActive="active">Доставка та оплата</li>
+            <li [routerLink]="[ '/about']" routerLinkActive="active">Про нас</li>
+            <li [routerLink]="[ '/discount']" routerLinkActive="active">Акції</li>
+          </ul>
+        </div>
+      </div>
+      <button class="functional__call-button">
+        <img src="../../../assets/phone.svg" alt="" />
+        <span>МИ ЗАТЕЛЕФОНУЄМО</span>
+      </button>
+      <div class="functional__phone-info">
+        <h3 class="phone">(097) 878 08 37</h3>
+        <span class="work-time"
+          >Працюємо з <span class="bold">11:00</span> до
+          <span class="bold">22:30</span></span
+        >
+      </div>
+      <div class="functional__user" [routerLink]="[ '/admin']" routerLinkActive="active">
+        <img src="../../../assets/user.svg" alt="" />
+      </div>
+      <div class="functional__menu-mobile" (click)="menuActive()">
+        <div class="line" [ngClass]="{ 'rotate-line': rotateLine}"></div>
+      </div>
+    </div>
+  </div>
+  <div class="basket">
+    <div class="basket__img">
+      <img src="../../../assets/basket.svg" alt="" width="38px" />
+      <div class="item-count">0</div>
+    </div>
+    <span class="total-price">0</span>
+    <span class="currency">грн</span>
+  </div>
+  <div class="bottom-categories">
+    <div class="product-category" *ngFor="let info of categoryList">
+      <img [src]="info.imagePath" alt="" height="30px" />
+      <span>{{ info.name }}</span>
+    </div>
+  </div>
+    <div class="menu-mobile-block" [ngClass]="{'menu-mobile-block-active': menuMobile}" (click)="menuActive()">
+      <ul>
+        <li><span [routerLink]="[ '/delivery']" routerLinkActive="active">Доставка та оплата</span></li>
+        <li><span [routerLink]="[ '/about']" routerLinkActive="active">Про нас</span></li>
+        <li><span [routerLink]="[ '/discount']" routerLinkActive="active">Акції</span></li>
+      </ul>
+      <div class="phone-info">
+        <h3 class="phone">(097) 878 08 37</h3>
+        <span class="work-time"
+          >Працюємо з <span class="bold">11:00</span> до
+          <span class="bold">22:30</span></span
+        >
+      </div>
+      <button class="call-button">
+        <img src="../../../assets/phone.svg" alt="" />
+        <span>МИ ЗАТЕЛЕФОНУЄМО</span>
+      </button>
+    </div>
+    
+</header>
+<div class="dark" *ngIf="menuMobile"></div>

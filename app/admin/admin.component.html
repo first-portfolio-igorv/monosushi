@@ -1,0 +1,94 @@
+<main>
+    <div class="function-list">
+        <div [ngClass]="{'active': discountCheck}" class="function-list__category" (click)="discount()">
+            <h1 >Акції</h1>
+        </div>
+        <div [ngClass]="{'active': categoryCheck}" class="function-list__category" (click)="category()">
+            <h1>Категорії</h1>
+        </div>
+        <div [ngClass]="{'active': goodsCheck}" class="function-list__category" (click)="goods()">
+            <h1>Товари</h1>
+        </div>
+        <div [ngClass]="{'active': orderCheck}" class="function-list__category" (click)="order()">
+            <h1>Замовлення</h1>
+        </div>
+        <button class="exit">ВИХІД</button>
+    </div>
+    <div class="function-info">
+        <div class="discounts" *ngIf="discountCheck">
+            <button class="add" (click)="AddBlock()">ДОДАТИ АКЦІЮ</button>
+            <div class="add-block" *ngIf="addBlock">
+                <input type="text" name="" id="" class="text" placeholder="Назва" [(ngModel)]="name">
+                <input type="text" name="" id="" class="text" placeholder="Заголовок" [(ngModel)]="title">
+                <textarea name="" id="" cols="30" rows="10"  class="text description" placeholder="Опис" [(ngModel)]="description"></textarea>
+                <div class="upload-block text">
+                    <input type="file" name="" id="" (change)="upload($event)">
+                </div>
+            <button class="confirm add" (click)="addDiscount()" *ngIf="!saveButtonCheck">Підтвердити</button>
+            <button class="confirm add" (click)="saveDiscountChanges()" *ngIf="saveButtonCheck">Зберигти</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Дата</td>
+                        <td>Назва</td>
+                        <td>Заголовок</td>
+                        <td>Опис</td>
+                        <td>Картинка</td>
+                        <td>Дії</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let info of discountStorage">
+                        <td class="date">12.2022</td>
+                        <td class="name">{{info.name}}</td>
+                        <td>{{info.title}}</td>
+                        <td class="description">{{info.description}}</td>
+                        <td class="img"><img [src]="info.path" alt=""></td>
+                        <td class="action">
+                            <h2 (click)="editDiscountBlock(info)">Редагувати</h2>
+                            <h2 (click)="deleteDiscount(info)">Видалити</h2>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="categories" *ngIf="categoryCheck">
+            <button class="add" (click)="AddBlock()">ДОДАТИ КАТЕГОРІЮ</button>
+            <div class="add-block" *ngIf="addBlock">
+                <input type="text" name="" id="" class="text" placeholder="Назва" [(ngModel)]="name">
+                <input type="text" name="" id="" class="text" placeholder="Шлях" [(ngModel)]="title">
+                <div class="upload-block text">
+                    <input type="file" name="" id="" (change)="upload($event)">
+                </div>
+            <button class="confirm add" (click)="addCategory()" *ngIf="!saveButtonCheck">Підтвердити</button>
+            <button class="confirm add" (click)="saveCategoryChanges()" *ngIf="saveButtonCheck">Зберигти</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>№</td>
+                        <td>Назва</td>
+                        <td>Шлях</td>
+                        <td>Картинка</td>
+                        <td>Дії</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let info of categoryStorage">
+                        <td class="num">№{{info.id}}</td>
+                        <td>{{info.name}}</td>
+                        <td class="description path">{{info.path}}</td>
+                        <td class="img"><img [src]="info.imagePath" alt=""></td>
+                        <td class="action">
+                            <h2 (click)="editCategoryBlock(info)">Редагувати</h2>
+                            <h2 (click)="deleteCategory(info)">Видалити</h2>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</main>
